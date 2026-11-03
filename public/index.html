@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Northline · Voice banking</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect fill='%2314382f' width='32' height='32' rx='4'/%3E%3Cpath d='M8 22V10h3.2l4.8 8.2L20.8 10H24v12h-2.4v-7.6L17.6 22h-3.2l-4-7.6V22z' fill='%23f3efe7'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="app.css" />
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <span class="mark" aria-hidden="true">N</span>
+      <div>
+        <p class="brand-name">Northline</p>
+        <p class="brand-sub">Branch voice desk</p>
+      </div>
+    </div>
+    <p class="demo-tag">Simulated customer · not a live bank</p>
+    <div class="status">
+      <span id="phase">Ready</span>
+      <span id="latency">Ledger on device</span>
+    </div>
+  </header>
+
+  <main>
+    <aside>
+      <p class="eyebrow">On the line</p>
+      <h1 id="customer">Alex Morgan</h1>
+      <p class="member">Demo profile · two accounts</p>
+      <div id="accounts"></div>
+      <p id="card" class="pill live">Debit card active</p>
+      <h2>Recent</h2>
+      <ul id="txns"></ul>
+      <p id="pending" class="pending" hidden></p>
+      <button id="reset" type="button">Reset demo</button>
+      <p class="fine">Balance, activity, transfers, and card controls never call the model.</p>
+    </aside>
+
+    <section class="stage">
+      <div id="log" class="log" aria-live="polite">
+        <p class="agent">Hi Alex. I can check a balance, recent activity, move money between your accounts, or freeze your card.</p>
+      </div>
+      <div class="dock">
+        <div id="chips" class="chips"></div>
+        <div class="composer">
+          <button id="mic" type="button" aria-pressed="false">
+            <span class="mic-label">Speak</span>
+          </button>
+          <p id="hint" class="hint">Tap or press Space</p>
+          <form id="form">
+            <label class="sr" for="text">Type a question</label>
+            <input id="text" type="text" maxlength="300" placeholder="Or type, then Enter" autocomplete="off" />
+          </form>
+          <label class="hands"><input id="hands" type="checkbox" /> Keep listening after each reply</label>
+        </div>
+        <div class="script">
+          <p>Demo path</p>
+          <ol>
+            <li>What's my balance?</li>
+            <li>Recent charges</li>
+            <li>Move 50 dollars to savings, then confirm</li>
+            <li>Freeze my card</li>
+            <li>Ask why Netflix posted — that one uses the free model</li>
+          </ol>
+          <p id="keyhint" class="keyhint" hidden></p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
